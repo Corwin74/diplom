@@ -1,4 +1,4 @@
-![](https://ibb.co/QM2dpzZ)
+![](https://i.ibb.co/4p6dK9c/asset-v1-Skillfactory-DST-WEBINARS-MAY2020-type-asset-block-Data-Science.png)
 # Дипломная работа
 Репозиторий с дипломной работой<br/> 
 Требуется решить задачу кредитного скоринга только на основании карточных транзакций клиента.
