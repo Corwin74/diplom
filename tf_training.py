@@ -1,8 +1,10 @@
+import sys
 import pandas as pd
 from tqdm.notebook import tqdm
 from sklearn.metrics import roc_auc_score
 
-from rnn_baseline.data_generators import batches_generator
+sys.path.append('./')
+from data_generators import batches_generator
 
 
 def train_epoch(model, dataset_train, batch_size=64, shuffle=True, cur_epoch=0,
@@ -16,12 +18,13 @@ def train_epoch(model, dataset_train, batch_size=64, shuffle=True, cur_epoch=0,
     :param cur_epoch:
     :param steps_per_epoch:
     :param callbacks: cписок из tf.keras.callbacks или None
-    :return: None
+    :return: history
     """
     train_generator = batches_generator(dataset_train, batch_size=batch_size, shuffle=shuffle,
                                         output_format='tf', is_train=True)
-    model.fit(train_generator, steps_per_epoch=steps_per_epoch, epochs=cur_epoch + 1,
+    history = model.fit(train_generator, steps_per_epoch=steps_per_epoch, epochs=cur_epoch + 1,
               initial_epoch=cur_epoch, callbacks=callbacks)
+    return history
 
 
 def eval_model(model, dataset_val, batch_size=32) -> float:
