@@ -87,7 +87,7 @@ def create_padded_buckets(frame_of_sequences: pd.DataFrame, bucket_info: Dict[in
     app_ids = []
     products = []
 
-    for size, bucket in tqdm(frame_of_sequences.groupby('bucket_idx'), desc='Extracting buckets'):
+    for size, bucket in frame_of_sequences.groupby('bucket_idx'):
         padded_sequences = bucket.sequences.apply(lambda x: pad_sequence(x, size)).values
         padded_sequences = np.array([np.array(x) for x in padded_sequences])
         padded_seq.append(padded_sequences)
