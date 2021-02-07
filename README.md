@@ -9,17 +9,17 @@
 
 #### Структура репозитория:
 
-diplom - решение на основе рекуррентных нейронных сетей <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;|-- eda.ipynb - Exploratory Data Analyses <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;|-- preprocessing.ipynb - ноутбук с препроцессингом транзакционных данных для нейроной сети<br/>
 
+eda.ipynb - Exploratory Data Analyses
+preprocessing.ipynb - ноутбук с препроцессингом транзакционных данных для нейроной сети
+model.ipynb - ноутбук с обучением модели и предскзанием результата
 
-
+|-- prototypes - промежуточные и тестовые варианты модулей
 |-- constants - папка с полезными константами для препроцессинга <br/>
+utils
 |-- data_generators.py - содержит функционал для генерации батчей <br/>
 |-- dataset_preprocessing_utils.py - методы для препроцессинга транзакционных данных <br/>
 |-- pytorch_training.py - методы обучения, валидации и инференса модели на torch <br/>
 |-- tf_training.py - методы обучения, валидации и инференса модели на tensorflow <br/>
 |-- training_aux.py - реализация early_stopping-а <br/>
-
-utils.py - методы для пакетного чтения и предобработки данных<br/> 
+|-- utils.py - методы для пакетного чтения и предобработки данных<br/> 
