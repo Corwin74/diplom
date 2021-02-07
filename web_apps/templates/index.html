@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<title>Кредитная лавка "Поле чудес"</title>
+		<meta name="description" content="Демо модели оценки заемщика по карточным транзакциям">
+		<meta name="keywords" content="Data Science, production, skill-factory">
+		<meta name="author" content="Alexander Samokhin">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	</head>
+	<body>
+		<header class="header">
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Переключить навигацию">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<div class="collapse navbar-collapse" id="navbarsDefault">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">О сайте</a>
+						</li>
+					</ul>
+					
+					<form class="form-inline my-2 my-lg-0" role="search">
+					  <input class="form-control mr-sm-2" type="text" placeholder="Поиск" aria-label="Поиск">
+					  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+					</form>
+				  </div>
+			</nav>
+		</header>
+		<main role="main">
+			<div class="jumbotron">
+				<div class="container">
+					<h1 class="display-3">Дипломная работа</h1>
+					<p>
+						Демонстрация работы модели оценки надежности заещика по его карточным транзакциям. Загрузите данные, нажмите кнопку "Пуск!" и наша модель выдаст вероятность дефолта клиента.
+					</p>
+					<p>
+						<a class="btn btn-primary btn-lg" href="{{ url_for('screen_result') }}" role="button">Пуск!</a>
+					</p>
+					<div class="progress">
+						<div class="progress-bar" style="width:{{width_bar}}">{{width_bar}}</div>
+					</div> 
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<form action="http://localhost:5000/uploader" method="post" enctype="multipart/form-data" role="form">
+							<div class="form-group col-sm-6" style="padding-right: 10px;">
+							 <label for="file"></label>
+							 <input type="file" name="file" id="file" class="form-control" data-filename-placement="inside" title="Выбрать файл" />
+						   </div>
+						   <div class="form-group col-sm-6" style="padding-left: 10px;">
+							 <button type="submit" class="btn btn-secondary" name="submit">Отправить</button>
+						   </div>
+						  </form>
+					</div>
+					<div class="col-md-4">
+						<h2>Входные данные</h2>
+						<p>{{input_file}}</p>
+					</div>
+					<div class="col-md-4">
+						<h2>У вас нет карточных транзакций клиента?</h2>
+						<p>Нажмите кнопку ниже и вы можете скачать файл с образцом таких данных. Бесплатно и без смс.</p>
+						<p><a class="btn btn-secondary" href="{{ url_for('download') }}"  role="button" download=""> Скачать »</a></p>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer role="contentinfo" class="footer">
+			<div class="container">
+				<span class="text-muted">© Александр Самохин. Все права случайны.</span>
+			</div>
+		</footer>
+	</body>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</html>
