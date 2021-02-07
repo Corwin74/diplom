@@ -8,17 +8,12 @@
 2. Максимальная детализация данных: 19 признаков на каждую транзакцию, пользовательская история глубиной в год (до 8к транзакций на клиента).
 
 #### Структура репозитория:
-boosting - решение на основание градиентного бустинга <br/> 
-|-- baseline.ipynb(0.737 AUC ROC Public LB) - ноутбук с решением задачи<br/> 
-|-- features.py - методы для генерации признаков<br/>
 
-diploma - решение на основе рекуррентных нейронных сетей <br/>
+diplom - решение на основе рекуррентных нейронных сетей <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;|-- eda.ipynb - Exploratory Data Analyses <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;|-- preprocessing.ipynb - ноутбук с препроцессингом транзакционных данных для нейроной сети<br/>
 
-|-- advanced_baseline - папка с улучшенными бейзлайнами (0.760 AUC ROC Public LB) </br>
-&nbsp;&nbsp;&nbsp;&nbsp;|-- pytorch_baseline.ipynb - решение с использованием torch <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;|-- tf_baseline.ipynb - решение с использованием tensorfow <br/>
+
 
 |-- constants - папка с полезными константами для препроцессинга <br/>
 |-- data_generators.py - содержит функционал для генерации батчей <br/>
