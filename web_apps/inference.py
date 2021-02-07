@@ -5,7 +5,7 @@ import os
 import numpy as np
 import subprocess
 
-UPLOAD_FOLDER = '/home/alex/diplom_app/data/'
+UPLOAD_FOLDER = '/home/alex/diplom/web_apps/data/'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = os.urandom(24)
@@ -33,12 +33,12 @@ def upload_file():
 
 @app.route('/data')
 def download():
-    return send_from_directory('data/', 'arm_compiler.BUILD')
+    return send_from_directory('data/', '42.csv')
 
 @app.route('/screen_result')
 def screen_result():
     global result, width_bar
-    result = subprocess.run(['python3', '/home/alex/diplom/diploma/web_inference.py', '/home/alex/diplom/diploma/42.csv'], stdout=subprocess.PIPE, text=True)
+    result = subprocess.run(['python3', '/home/alex/diplom/web_apps/web_inference.py', '/home/alex/diplom/web_apps/data/42.csv'], stdout=subprocess.PIPE, text=True)
     result = int(float(result.stdout.splitlines()[1])*100)
     width_bar = str(result*10)+'%'
     return redirect(url_for('index'))
