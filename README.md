@@ -8,23 +8,17 @@
 2. Максимальная детализация данных: 19 признаков на каждую транзакцию, пользовательская история глубиной в год (до 8к транзакций на клиента).
 
 #### Структура репозитория:
-boosting - решение на основание градиентного бустинга <br/> 
-|-- baseline.ipynb(0.737 AUC ROC Public LB) - ноутбук с решением задачи<br/> 
-|-- features.py - методы для генерации признаков<br/>
 
-diploma - решение на основе рекуррентных нейронных сетей <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;|-- eda.ipynb - Exploratory Data Analyses <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;|-- preprocessing.ipynb - ноутбук с препроцессингом транзакционных данных для нейроной сети<br/>
 
-|-- advanced_baseline - папка с улучшенными бейзлайнами (0.760 AUC ROC Public LB) </br>
-&nbsp;&nbsp;&nbsp;&nbsp;|-- pytorch_baseline.ipynb - решение с использованием torch <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;|-- tf_baseline.ipynb - решение с использованием tensorfow <br/>
+eda.ipynb - Exploratory Data Analyses<br/>
+preprocessing.ipynb - ноутбук с препроцессингом транзакционных данных для нейроной сети<br/>
+model.ipynb - ноутбук с обучением модели и предскзанием результата<br/>
 
+|-- prototypes - промежуточные и тестовые варианты модулей<br/>
 |-- constants - папка с полезными константами для препроцессинга <br/>
-|-- data_generators.py - содержит функционал для генерации батчей <br/>
-|-- dataset_preprocessing_utils.py - методы для препроцессинга транзакционных данных <br/>
-|-- pytorch_training.py - методы обучения, валидации и инференса модели на torch <br/>
-|-- tf_training.py - методы обучения, валидации и инференса модели на tensorflow <br/>
-|-- training_aux.py - реализация early_stopping-а <br/>
-
-utils.py - методы для пакетного чтения и предобработки данных<br/> 
+utils<br/>
+&nbsp; &nbsp; |-- data_generators.py - содержит функционал для генерации батчей <br/>
+&nbsp; &nbsp; |-- dataset_preprocessing_utils.py - методы для препроцессинга транзакционных данных <br/>
+&nbsp; &nbsp; |-- tf_training.py - методы обучения, валидации и инференса модели <br/>
+&nbsp; &nbsp; |-- training_aux.py - реализация early_stopping-а <br/>
+&nbsp; &nbsp; |-- utils.py - методы для пакетного чтения и предобработки данных<br/> 
